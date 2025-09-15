@@ -23,7 +23,7 @@ A polished Tic-Tac-Toe game built with C# WinForms featuring custom graphics and
 - **Visual Studio**  
 
   ### 📸 Preview  
-  ![Game Preview](https://github.com/MohamedIdrissiAlami/Tic-Tac-Toe-Game/blob/main/Screenshot.png)  
+  ![Game Preview](https://github.com/MohamedIdrissiAlami/Tic-Tac-Toe-Game/blob/main/screenshot.png)  
 ---
 
 **Developer:** [`Mohamed Idrissi Alami`]  

@@ -133,49 +133,10 @@ namespace TicTacToeGame
                 MessageBox.Show("Wrong Choice","Wrong",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void btn1_Click(object sender, EventArgs e)
+        private void Button_Click(object sender, EventArgs e)
         {
-            _ChangeImage(btn1);
+            _ChangeImage((Button)sender);
         }
 
-        private void btn2_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn2);
-        }
-
-        private void btn3_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn3);
-        }
-
-        private void btn4_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn4);
-        }
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn5);
-        }
-
-        private void btn6_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn6);
-        }
-
-        private void btn7_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn7);
-        }
-
-        private void btn8_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn8);
-        }
-
-        private void btn9_Click(object sender, EventArgs e)
-        {
-            _ChangeImage(btn9);
-        }
     }
 }

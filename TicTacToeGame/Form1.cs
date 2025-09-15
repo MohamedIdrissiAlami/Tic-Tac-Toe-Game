@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TicTacToeGame.Properties;
 
 namespace TicTacToeGame
 {
@@ -15,6 +16,166 @@ namespace TicTacToeGame
         public Form1()
         {
             InitializeComponent();
+        }
+        private enTurn _PlayerTurn = enTurn.Player1;
+        private stGameStatus _GameStatus;
+
+        enum enWinner { Player1, Player2, Draw,InProgress }
+        enum enTurn { Player1, Player2 }
+
+        struct stGameStatus
+        {
+            public byte PlayCount;
+            public bool GameOver;
+            public enWinner Winner;
+        }
+
+        private void _SetBtnBackColorTo(Button btn,Color Color)
+        {
+            btn.BackColor = Color;
+        }
+        private bool _CheckValues(Button Button1,Button Button2,Button Button3)
+        {
+            if(Button1.Tag.ToString()== Button2.Tag.ToString() && Button1.Tag.ToString()== Button3.Tag.ToString()&& Button1.Tag.ToString()!="?")
+            {
+                _SetBtnBackColorTo(Button1, Color.YellowGreen);
+                _SetBtnBackColorTo(Button2, Color.YellowGreen);
+                _SetBtnBackColorTo(Button3, Color.YellowGreen);
+                _GameStatus.GameOver = true;
+                _GameStatus.Winner = (Button1.Tag.ToString()=="X"? enWinner.Player1: enWinner.Player2);
+                return true;
+            }
+            _GameStatus.GameOver = false;
+            return false;
+        }
+        private bool CheckWinner()
+        {
+
+            //check row1
+            if (_CheckValues(btn1, btn2, btn3))
+                return true;
+            //check row2
+            if (_CheckValues(btn4, btn5, btn6))
+                return true;
+            //check row3
+            if (_CheckValues(btn7, btn8, btn9))
+                return true;
+            //check column 1
+            if (_CheckValues(btn1, btn4, btn7))
+                return true;
+            //check column 2
+            if (_CheckValues(btn2, btn5, btn8))
+                return true;
+            //check column 3
+            if (_CheckValues(btn3, btn6, btn9))
+                return true;
+            //check diagonals
+            if (_CheckValues(btn1, btn5, btn9))
+                return true;
+            if (_CheckValues(btn3, btn5, btn7))
+                return true;
+            
+            if(_GameStatus.PlayCount==9)
+            {
+                _GameStatus.Winner = enWinner.Draw;
+                return true;
+            }
+
+            return false;
+        }
+
+        private void _EndGame()
+        {
+            lblTurn.Text = "Game Over";
+            switch(_GameStatus.Winner)
+            {
+                case enWinner.Player1:
+                    lblWinner.Text = "Player1";
+                    break;
+                case enWinner.Player2:
+                    lblWinner.Text = "Player2";
+                    break;
+                default:
+                    lblWinner.Text = "Draw";
+                    break;
+            }
+            MessageBox.Show("Game Over","Game Over",MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void _ChangeImage(Button btn)
+        {
+            if(btn.Tag.ToString()=="?")
+            {
+                switch(_PlayerTurn)
+                {
+                    case enTurn.Player1:
+                        btn.Image = Resources.X;
+                        btn.Tag = "X";
+                        ++_GameStatus.PlayCount;
+                        lblTurn.Text = "Player2";
+                        _PlayerTurn = enTurn.Player2;
+                        break;
+                    case enTurn.Player2:
+                        btn.Image = Resources.O;
+                        btn.Tag = "O";
+                        ++_GameStatus.PlayCount;
+                        lblTurn.Text = "Player1";
+                        _PlayerTurn = enTurn.Player1;
+                        break;
+                }
+                if(CheckWinner()||_GameStatus.PlayCount == 9)
+                {
+                    _GameStatus.GameOver = true;
+                    _EndGame();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Wrong Choice","Wrong",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn1);
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn2);
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn3);
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn4);
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn5);
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn6);
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn7);
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn8);
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            _ChangeImage(btn9);
         }
     }
 }

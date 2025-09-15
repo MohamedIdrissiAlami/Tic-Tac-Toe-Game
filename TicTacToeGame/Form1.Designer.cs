@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnResetGame = new System.Windows.Forms.Button();
             this.label66 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblTurn = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblWinner = new System.Windows.Forms.Label();
             this.btn1 = new System.Windows.Forms.Button();
             this.btn2 = new System.Windows.Forms.Button();
             this.btn3 = new System.Windows.Forms.Button();
@@ -57,20 +57,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tic Tac Toe Game";
             // 
-            // button1
+            // btnResetGame
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Gold;
-            this.button1.Location = new System.Drawing.Point(32, 537);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 56);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Reset Game";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnResetGame.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnResetGame.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnResetGame.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Azure;
+            this.btnResetGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResetGame.Font = new System.Drawing.Font("MV Boli", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetGame.ForeColor = System.Drawing.Color.Gold;
+            this.btnResetGame.Location = new System.Drawing.Point(32, 537);
+            this.btnResetGame.Name = "btnResetGame";
+            this.btnResetGame.Size = new System.Drawing.Size(230, 56);
+            this.btnResetGame.TabIndex = 1;
+            this.btnResetGame.Text = "Reset Game";
+            this.btnResetGame.UseVisualStyleBackColor = true;
             // 
             // label66
             // 
@@ -83,16 +83,16 @@
             this.label66.TabIndex = 2;
             this.label66.Text = "Turn";
             // 
-            // label3
+            // lblTurn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(32, 250);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(151, 52);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Player1";
+            this.lblTurn.AutoSize = true;
+            this.lblTurn.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTurn.ForeColor = System.Drawing.Color.Gold;
+            this.lblTurn.Location = new System.Drawing.Point(32, 250);
+            this.lblTurn.Name = "lblTurn";
+            this.lblTurn.Size = new System.Drawing.Size(151, 52);
+            this.lblTurn.TabIndex = 3;
+            this.lblTurn.Text = "Player1";
             // 
             // label4
             // 
@@ -105,16 +105,16 @@
             this.label4.TabIndex = 4;
             this.label4.Text = "Winner";
             // 
-            // label5
+            // lblWinner
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Chartreuse;
-            this.label5.Location = new System.Drawing.Point(32, 423);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(230, 52);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "In Progress";
+            this.lblWinner.AutoSize = true;
+            this.lblWinner.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinner.ForeColor = System.Drawing.Color.Chartreuse;
+            this.lblWinner.Location = new System.Drawing.Point(32, 423);
+            this.lblWinner.Name = "lblWinner";
+            this.lblWinner.Size = new System.Drawing.Size(230, 52);
+            this.lblWinner.TabIndex = 5;
+            this.lblWinner.Text = "In Progress";
             // 
             // btn1
             // 
@@ -131,6 +131,7 @@
             this.btn1.TabIndex = 6;
             this.btn1.Tag = "?";
             this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -147,6 +148,7 @@
             this.btn2.TabIndex = 7;
             this.btn2.Tag = "?";
             this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
             // btn3
             // 
@@ -163,6 +165,7 @@
             this.btn3.TabIndex = 8;
             this.btn3.Tag = "?";
             this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
             // btn4
             // 
@@ -179,6 +182,7 @@
             this.btn4.TabIndex = 9;
             this.btn4.Tag = "?";
             this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
             // btn5
             // 
@@ -195,6 +199,7 @@
             this.btn5.TabIndex = 10;
             this.btn5.Tag = "?";
             this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn6
             // 
@@ -211,6 +216,7 @@
             this.btn6.TabIndex = 11;
             this.btn6.Tag = "?";
             this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
             // btn7
             // 
@@ -227,6 +233,7 @@
             this.btn7.TabIndex = 12;
             this.btn7.Tag = "?";
             this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn8
             // 
@@ -243,6 +250,7 @@
             this.btn8.TabIndex = 13;
             this.btn8.Tag = "?";
             this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
             // btn9
             // 
@@ -259,6 +267,7 @@
             this.btn9.TabIndex = 14;
             this.btn9.Tag = "?";
             this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
             // Form1
             // 
@@ -275,11 +284,11 @@
             this.Controls.Add(this.btn3);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblWinner);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblTurn);
             this.Controls.Add(this.label66);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnResetGame);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -291,11 +300,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnResetGame;
         private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblTurn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblWinner;
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btn2;
         private System.Windows.Forms.Button btn3;

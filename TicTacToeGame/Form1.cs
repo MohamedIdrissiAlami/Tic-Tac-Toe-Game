@@ -138,5 +138,34 @@ namespace TicTacToeGame
             _ChangeImage((Button)sender);
         }
 
+        private void ResetButton(Button btn)
+        {
+            btn.BackColor = Color.Transparent;
+            btn.Tag = "?";
+            btn.Image = Resources.question_mark_96;
+        }
+        private void _ResetGame()
+        {
+            ResetButton(btn1);
+            ResetButton(btn2);
+            ResetButton(btn3);
+            ResetButton(btn4);
+            ResetButton(btn5);
+            ResetButton(btn6);
+            ResetButton(btn7);
+            ResetButton(btn8);
+            ResetButton(btn9);
+
+            lblTurn.Text = "Player1";
+            _PlayerTurn = enTurn.Player1;
+            lblWinner.Text = "In Progress";
+            _GameStatus.GameOver = false;
+            _GameStatus.PlayCount = 0;
+            _GameStatus.Winner = enWinner.InProgress;
+        }
+        private void btnResetGame_Click(object sender, EventArgs e)
+        {
+            _ResetGame();
+        }
     }
 }

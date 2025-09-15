@@ -270,7 +270,7 @@
             this.btn9.UseVisualStyleBackColor = true;
             this.btn9.Click += new System.EventHandler(this.Button_Click);
             // 
-            // Form1
+            // TicTacToe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,8 +291,9 @@
             this.Controls.Add(this.label66);
             this.Controls.Add(this.btnResetGame);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Name = "TicTacToe";
+            this.Text = "Tic Tac Toe Game";
             this.ResumeLayout(false);
             this.PerformLayout();
 

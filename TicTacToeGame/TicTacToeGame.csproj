@@ -89,5 +89,10 @@
   <ItemGroup>
     <None Include="Resources\X.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="tic-tac-toe-icon.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

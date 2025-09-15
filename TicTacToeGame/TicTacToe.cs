@@ -11,9 +11,9 @@ using TicTacToeGame.Properties;
 
 namespace TicTacToeGame
 {
-    public partial class Form1 : Form
+    public partial class TicTacToe : Form
     {
-        public Form1()
+        public TicTacToe()
         {
             InitializeComponent();
         }

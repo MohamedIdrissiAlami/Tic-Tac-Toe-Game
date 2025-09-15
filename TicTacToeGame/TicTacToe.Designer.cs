@@ -1,6 +1,6 @@
 ﻿namespace TicTacToeGame
 {
-    partial class Form1
+    partial class TicTacToe
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TicTacToe));
             this.label1 = new System.Windows.Forms.Label();
             this.btnResetGame = new System.Windows.Forms.Button();
             this.label66 = new System.Windows.Forms.Label();
